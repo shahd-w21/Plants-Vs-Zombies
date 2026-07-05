@@ -1,0 +1,120 @@
+package pvz.model;
+
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+public class SoundtrackPlayer
+{
+	private static MediaPlayer sound_track_player;
+
+	public static void playInGametrack1()
+	{
+		try
+		{
+			String path = SoundtrackPlayer.class.getResource("/pvz/music/level 1 soundtrack.mp3").toExternalForm();
+
+			// Create a new MediaPlayer for the soundtrack
+			Media media = new Media(path);
+			sound_track_player = new MediaPlayer(media);
+
+			// Set the background music to loop
+			sound_track_player.setCycleCount(MediaPlayer.INDEFINITE);
+			AudioSettings.register(sound_track_player);
+			AudioSettings.apply(sound_track_player);
+
+			// Start playing the soundtrack
+			sound_track_player.play();
+		} catch (Exception e)
+		{
+			System.out.println("Error playing soundtrack: " + e.getMessage());
+		}
+	}
+
+	public static void playInGametrack2()
+	{
+		try
+		{
+			String path = SoundtrackPlayer.class.getResource("/pvz/music/level 2 soundtrack.mp3").toExternalForm();
+
+			// Create a new MediaPlayer for the soundtrack
+			Media media = new Media(path);
+			sound_track_player = new MediaPlayer(media);
+
+			// Set the background music to loop
+			sound_track_player.setCycleCount(MediaPlayer.INDEFINITE);
+			AudioSettings.register(sound_track_player);
+			AudioSettings.apply(sound_track_player);
+
+			// Start playing the soundtrack
+			sound_track_player.play();
+		} catch (Exception e)
+		{
+			System.out.println("Error playing soundtrack: " + e.getMessage());
+		}
+	}
+
+	public static void playInGametrack3()
+	{
+		try
+		{
+			String path = SoundtrackPlayer.class.getResource("/pvz/music/level 3 christmas soundtrack.mp3").toExternalForm();
+
+			// Create a new MediaPlayer for the soundtrack
+			Media media = new Media(path);
+			sound_track_player = new MediaPlayer(media);
+
+			// Set the background music to loop
+			sound_track_player.setCycleCount(MediaPlayer.INDEFINITE);
+			AudioSettings.register(sound_track_player);
+			AudioSettings.apply(sound_track_player);
+
+			// Start playing the soundtrack
+			sound_track_player.play();
+		} catch (Exception e)
+		{
+			System.out.println("Error playing soundtrack: " + e.getMessage());
+		}
+	}
+
+	public static void playMainMenutrack()
+	{
+		try
+		{
+			String path = SoundtrackPlayer.class.getResource("/pvz/music/main menu soundtrack.mp3").toExternalForm();
+
+			// Create a new MediaPlayer for the soundtrack
+			Media media = new Media(path);
+			sound_track_player = new MediaPlayer(media);
+
+			// Set the background music to loop
+			sound_track_player.setCycleCount(MediaPlayer.INDEFINITE);
+			AudioSettings.register(sound_track_player);
+			AudioSettings.apply(sound_track_player);
+
+			// Start playing the soundtrack
+			sound_track_player.play();
+		} catch (Exception e)
+		{
+			System.out.println("Error playing soundtrack: " + e.getMessage());
+		}
+	}
+
+	public static void playMenuTrack()
+	{
+		playMainMenutrack();
+	}
+
+	public static void stopTrack() {
+		try {
+			if (sound_track_player != null) {
+				AudioSettings.unregister(sound_track_player);
+				sound_track_player.stop();  // Stop the current track
+				sound_track_player.dispose();  // Release resources
+				sound_track_player = null;  // Clear the reference
+			}
+		} catch (Exception e) {
+			System.out.println("Error stopping soundtrack: " + e.getMessage());
+		}
+	}
+}
+
